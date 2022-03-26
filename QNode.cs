@@ -36,6 +36,18 @@ namespace QueueProgram
             this.rear = temp;
         }
 
+        public void dequeue()
+        {
+            if (this.front == null)
+                return;
+
+            QNode temp = this.front;
+            this.front = this.front.next;
+
+            if (this.front == null)
+                this.rear = null;
+        }
+
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, Welcome to Queue Problem");
@@ -45,6 +57,12 @@ namespace QueueProgram
             q.enqueue(30);
             q.enqueue(70);
             Console.WriteLine("statrting element is: " + q.front.key);
+            Console.WriteLine("Last element is: " + q.rear.key);
+            Console.WriteLine("Removing element from Queue");
+            q.dequeue();
+            q.dequeue();
+            q.dequeue();
+            Console.WriteLine("All elements are removed ");
 
         }
     }
